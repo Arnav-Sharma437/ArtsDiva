@@ -19,30 +19,26 @@ document.addEventListener('DOMContentLoaded', () => {
     let slideInterval;
     const intervalTime = 5000;
     
+    // Initialize first slide
+    slides[0].classList.add('active');
+    
     const goToSlide = (n) => {
-      slides[currentSlide].style.display = 'none';
-      dots[currentSlide].classList.remove('active');
+      slides[currentSlide].classList.remove('active');
+      if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
       
       currentSlide = (n + slides.length) % slides.length;
       
-      slides[currentSlide].style.display = 'block';
-      dots[currentSlide].classList.add('active');
+      slides[currentSlide].classList.add('active');
+      if (dots[currentSlide]) dots[currentSlide].classList.add('active');
       
-      // Update pagination number if it exists
       const paginationNum = document.querySelector('.hero-pagination .uppercase');
       if (paginationNum) {
         paginationNum.textContent = `0${currentSlide + 1}`;
       }
     };
     
-    // Initialize slides
-    slides.forEach((slide, index) => {
-      if (index !== 0) slide.style.display = 'none';
-    });
-    
     const nextSlide = () => goToSlide(currentSlide + 1);
     
-    // Auto slide
     const startSlide = () => {
       slideInterval = setInterval(nextSlide, intervalTime);
     };
@@ -51,7 +47,6 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(slideInterval);
     };
     
-    // Event listeners
     dots.forEach((dot, index) => {
       dot.addEventListener('click', () => {
         pauseSlide();
@@ -68,27 +63,61 @@ document.addEventListener('DOMContentLoaded', () => {
     startSlide();
   }
 
-  // Carousel Next/Prev Logic
-  // We will assume the .grid-4 has horizontal scroll for mobile/tablets, 
-  // and we'll implement a simple scroll for the buttons.
+  // Smooth Looping Carousel
   const carousels = document.querySelectorAll('.grid-4');
   
-  carousels.forEach((carousel, index) => {
-    // Find the closest section header controls
+  carousels.forEach((carousel) => {
     const section = carousel.closest('.container').parentElement;
     const prevBtn = section.querySelector('.carousel-controls .circle-btn:first-child');
     const nextBtn = section.querySelector('.carousel-controls .circle-btn:last-child');
+    let isAnimating = false;
     
     if (prevBtn && nextBtn) {
       prevBtn.addEventListener('click', () => {
-        // Scroll left by card width roughly
-        const cardWidth = carousel.querySelector('.card').offsetWidth;
-        carousel.scrollBy({ left: -cardWidth - 32, behavior: 'smooth' });
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        const lastCard = carousel.lastElementChild;
+        const cardWidth = lastCard.offsetWidth;
+        const gap = parseInt(window.getComputedStyle(carousel).gap) || 32;
+        const moveDistance = cardWidth + gap;
+        
+        // Move element physically before animation, then offset with transform to appear in same place
+        carousel.prepend(lastCard);
+        carousel.style.transition = 'none';
+        carousel.style.transform = `translateX(-${moveDistance}px)`;
+        
+        // Force reflow
+        carousel.offsetHeight; 
+        
+        // Animate to 0
+        carousel.style.transition = 'transform 0.5s ease';
+        carousel.style.transform = 'translateX(0)';
+        
+        setTimeout(() => {
+          isAnimating = false;
+        }, 500);
       });
       
       nextBtn.addEventListener('click', () => {
-        const cardWidth = carousel.querySelector('.card').offsetWidth;
-        carousel.scrollBy({ left: cardWidth + 32, behavior: 'smooth' });
+        if (isAnimating) return;
+        isAnimating = true;
+        
+        const firstCard = carousel.firstElementChild;
+        const cardWidth = firstCard.offsetWidth;
+        const gap = parseInt(window.getComputedStyle(carousel).gap) || 32;
+        const moveDistance = cardWidth + gap;
+        
+        // Animate out
+        carousel.style.transition = 'transform 0.5s ease';
+        carousel.style.transform = `translateX(-${moveDistance}px)`;
+        
+        setTimeout(() => {
+          carousel.style.transition = 'none';
+          carousel.style.transform = 'translateX(0)';
+          carousel.appendChild(firstCard);
+          isAnimating = false;
+        }, 500);
       });
     }
   });
