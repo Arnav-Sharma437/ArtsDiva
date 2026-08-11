@@ -506,7 +506,7 @@ header {
   display: grid;
   grid-template-columns: 7fr 3fr;
   align-items: center;
-  gap: var(--space-lg);
+  gap: var(--space-md);
 }
 
 .split-section.reversed {
