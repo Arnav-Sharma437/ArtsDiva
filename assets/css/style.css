@@ -484,12 +484,12 @@ header {
 .event-card {
   background-color: var(--bg-secondary);
   transition: all 0.4s ease;
-  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.2) !important;
+  box-shadow: none !important;
 }
 
 .event-card:hover {
-  background-color: #fff;
-  box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.3) !important;
+  background-color: #fff !important;
+  box-shadow: 0px 12px 36px rgba(0, 0, 0, 0.08) !important;
 }
 
 .event-card-content {
