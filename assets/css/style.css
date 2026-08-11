@@ -275,6 +275,7 @@ header {
   align-items: center;
   gap: 15px;
   color: #fff;
+  z-index: 50;
 }
 
 .pagination-circle {
@@ -483,12 +484,12 @@ header {
 .event-card {
   background-color: var(--bg-secondary);
   transition: all 0.4s ease;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
+  box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.2) !important;
 }
 
 .event-card:hover {
   background-color: #fff;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25) !important;
+  box-shadow: 0 25px 50px -10px rgba(0, 0, 0, 0.3) !important;
 }
 
 .event-card-content {
@@ -538,7 +539,7 @@ header {
   margin-bottom: 15px;
   line-height: 1.3;
   letter-spacing: 1px;
-  font-weight: 500;
+  font-weight: 700;
 }
 
 .split-content p {
