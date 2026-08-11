@@ -11,8 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hero Slider
   const slides = document.querySelectorAll('.hero-slide');
-  const dots = document.querySelectorAll('.dot');
   const sliderContainer = document.querySelector('.hero');
+  const paginationContainer = document.querySelector('.hero-pagination');
   
   if (slides.length > 0) {
     let currentSlide = 0;
@@ -22,19 +22,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize first slide
     slides[0].classList.add('active');
     
+    const renderPagination = () => {
+      if (!paginationContainer) return;
+      paginationContainer.innerHTML = '';
+      
+      for (let i = 0; i < slides.length; i++) {
+        if (i === currentSlide) {
+          const circle = document.createElement('div');
+          circle.className = 'pagination-circle font-medium';
+          circle.textContent = (i + 1 < 10) ? `0${i + 1}` : i + 1;
+          paginationContainer.appendChild(circle);
+        } else {
+          const dot = document.createElement('div');
+          dot.className = 'dot';
+          dot.addEventListener('click', () => {
+            pauseSlide();
+            goToSlide(i);
+            startSlide();
+          });
+          paginationContainer.appendChild(dot);
+        }
+      }
+    };
+    
     const goToSlide = (n) => {
       slides[currentSlide].classList.remove('active');
-      if (dots[currentSlide]) dots[currentSlide].classList.remove('active');
       
       currentSlide = (n + slides.length) % slides.length;
       
       slides[currentSlide].classList.add('active');
-      if (dots[currentSlide]) dots[currentSlide].classList.add('active');
-      
-      const paginationNum = document.querySelector('.hero-pagination .uppercase');
-      if (paginationNum) {
-        paginationNum.textContent = `0${currentSlide + 1}`;
-      }
+      renderPagination();
     };
     
     const nextSlide = () => goToSlide(currentSlide + 1);
@@ -47,19 +64,12 @@ document.addEventListener('DOMContentLoaded', () => {
       clearInterval(slideInterval);
     };
     
-    dots.forEach((dot, index) => {
-      dot.addEventListener('click', () => {
-        pauseSlide();
-        goToSlide(index);
-        startSlide();
-      });
-    });
-    
     if (sliderContainer) {
       sliderContainer.addEventListener('mouseenter', pauseSlide);
       sliderContainer.addEventListener('mouseleave', startSlide);
     }
     
+    renderPagination();
     startSlide();
   }
 
