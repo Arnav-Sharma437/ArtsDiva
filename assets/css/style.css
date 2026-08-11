@@ -513,6 +513,16 @@ header {
   grid-template-columns: 3fr 7fr;
 }
 
+.split-left-flush .split-image {
+  margin-left: calc(-50vw + 50%);
+  width: calc(100% + 50vw - 50%);
+}
+
+.split-right-flush .split-image {
+  margin-right: calc(-50vw + 50%);
+  width: calc(100% + 50vw - 50%);
+}
+
 .split-section.reversed .split-image {
   order: 2;
 }
