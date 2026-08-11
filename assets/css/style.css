@@ -489,7 +489,8 @@ header {
 
 .event-card:hover {
   background-color: #fff !important;
-  box-shadow: 0px 12px 36px rgba(0, 0, 0, 0.08) !important;
+  transform: translateY(-8px);
+  box-shadow: 0px 30px 40px -15px rgba(0, 0, 0, 0.2) !important;
 }
 
 .event-card-content {
