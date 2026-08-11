@@ -483,12 +483,12 @@ header {
 .event-card {
   background-color: var(--bg-secondary);
   transition: all 0.4s ease;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15) !important;
 }
 
 .event-card:hover {
   background-color: #fff;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.25) !important;
 }
 
 .event-card-content {
@@ -775,3 +775,6 @@ footer {
     flex: 0 0 100%;
   }
 }
+
+/* Enforce 15px margin-bottom for all text elements */
+h1, h2, h3, h4, h5, h6, p, .card-title, .card-meta, .card-desc, .icon-row, .hero-eyebrow, .hero-headline, .hero-subheading, .section-title { margin-bottom: 15px !important; }
