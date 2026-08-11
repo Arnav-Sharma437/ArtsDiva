@@ -474,9 +474,10 @@ header {
 
 .event-card {
   background-color: var(--bg-secondary);
+  transition: all 0.4s ease;
 }
 
-.event-card.elevated-card {
+.event-card:hover {
   background-color: #fff;
   box-shadow: 0 10px 40px rgba(0,0,0,0.06);
 }
