@@ -87,41 +87,67 @@
         <section class="section-padding container">
             <div class="section-header">
                 <div class="section-header-left">
-                    <h2 class="section-title uppercase" style="margin-bottom:0;">Forthcoming Exhibitions</h2>
+                    <h2 class="section-title uppercase font-light" style="margin-bottom:0;">Forthcoming Exhibitions</h2>
                     <div class="title-divider"></div>
-                    <a href="#" class="link-arrow uppercase">View All <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    <a href="#" class="link-arrow uppercase">View All <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
                 </div>
-                <div class="carousel-controls">
-                    <span class="uppercase">4/8</span>
-                    <button class="circle-btn" aria-label="Previous"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                    <button class="circle-btn" aria-label="Next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                <div class="carousel-controls plain-arrows">
+                    <button class="plain-btn" aria-label="Previous"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <span class="uppercase font-medium" style="margin: 0 10px;">1 / 8</span>
+                    <button class="plain-btn" aria-label="Next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
                 </div>
             </div>
             
-            <div class="grid-4">
+            <div class="grid-4" id="exhibitions-grid">
                 <article class="card">
                     <div class="card-image"><img src="assets/images/exhibition_1.jpg" alt="Abstract Horizons"></div>
-                    <h3 class="card-title font-bold uppercase">Abstract Horizons</h3>
-                    <p class="card-meta font-medium text-muted uppercase">Contemporary Landscape Painting</p>
-                    <p class="card-desc">15 October 2026 — 10 November 2026<br>Main Gallery, NY</p>
+                    <h3 class="card-title font-regular uppercase">Abstract Horizons</h3>
+                    <p class="card-meta font-light text-muted uppercase">Contemporary Abstract Painting</p>
+                    <p class="card-desc uppercase font-light">15 September — 20 December 2026<br>New Delhi, India</p>
                 </article>
                 <article class="card">
-                    <div class="card-image"><img src="assets/images/exhibition_2.jpg" alt="Echoes of Color"></div>
-                    <h3 class="card-title font-bold uppercase">Echoes of Color</h3>
-                    <p class="card-meta font-medium text-muted uppercase">The Abstract Expression</p>
-                    <p class="card-desc">20 November 2026 — 5 January 2027<br>West Wing, NY</p>
+                    <div class="card-image"><img src="assets/images/exhibition_2.jpg" alt="Echoes of Light"></div>
+                    <h3 class="card-title font-regular uppercase">Echoes of Light</h3>
+                    <p class="card-meta font-light text-muted uppercase">Oil on Canvas Collection</p>
+                    <p class="card-desc uppercase font-light">01 October — 15 January 2027<br>Milan, Italy</p>
                 </article>
                 <article class="card">
-                    <div class="card-image"><img src="assets/images/exhibition_3.jpg" alt="Human Expressions"></div>
-                    <h3 class="card-title font-bold uppercase">Human Expressions</h3>
-                    <p class="card-meta font-medium text-muted uppercase">Contemporary Sculptures</p>
-                    <p class="card-desc">10 January 2027 — 28 February 2027<br>Sculpture Hall, NY</p>
+                    <div class="card-image"><img src="assets/images/exhibition_3.jpg" alt="Urban Expressions"></div>
+                    <h3 class="card-title font-regular uppercase">Urban Expressions</h3>
+                    <p class="card-meta font-light text-muted uppercase">Contemporary Mixed Media</p>
+                    <p class="card-desc uppercase font-light">20 September — 10 December 2026<br>New York, USA</p>
                 </article>
                 <article class="card">
-                    <div class="card-image"><img src="assets/images/exhibition_4.jpg" alt="Minimalist Visions"></div>
-                    <h3 class="card-title font-bold uppercase">Minimalist Visions</h3>
-                    <p class="card-meta font-medium text-muted uppercase">Geometric Abstraction</p>
-                    <p class="card-desc">5 March 2027 — 20 April 2027<br>Modern Room, NY</p>
+                    <div class="card-image"><img src="assets/images/exhibition_4.jpg" alt="Nature In Motion"></div>
+                    <h3 class="card-title font-regular uppercase">Nature In Motion</h3>
+                    <p class="card-meta font-light text-muted uppercase">Landscape Fine Art Collection</p>
+                    <p class="card-desc uppercase font-light">05 October — 18 January 2027<br>Paris, France</p>
+                </article>
+                
+                <!-- Duplicated for 8 cards slider -->
+                <article class="card">
+                    <div class="card-image"><img src="assets/images/exhibition_1.jpg" alt="Abstract Horizons"></div>
+                    <h3 class="card-title font-regular uppercase">Abstract Horizons</h3>
+                    <p class="card-meta font-light text-muted uppercase">Contemporary Abstract Painting</p>
+                    <p class="card-desc uppercase font-light">15 September — 20 December 2026<br>New Delhi, India</p>
+                </article>
+                <article class="card">
+                    <div class="card-image"><img src="assets/images/exhibition_2.jpg" alt="Echoes of Light"></div>
+                    <h3 class="card-title font-regular uppercase">Echoes of Light</h3>
+                    <p class="card-meta font-light text-muted uppercase">Oil on Canvas Collection</p>
+                    <p class="card-desc uppercase font-light">01 October — 15 January 2027<br>Milan, Italy</p>
+                </article>
+                <article class="card">
+                    <div class="card-image"><img src="assets/images/exhibition_3.jpg" alt="Urban Expressions"></div>
+                    <h3 class="card-title font-regular uppercase">Urban Expressions</h3>
+                    <p class="card-meta font-light text-muted uppercase">Contemporary Mixed Media</p>
+                    <p class="card-desc uppercase font-light">20 September — 10 December 2026<br>New York, USA</p>
+                </article>
+                <article class="card">
+                    <div class="card-image"><img src="assets/images/exhibition_4.jpg" alt="Nature In Motion"></div>
+                    <h3 class="card-title font-regular uppercase">Nature In Motion</h3>
+                    <p class="card-meta font-light text-muted uppercase">Landscape Fine Art Collection</p>
+                    <p class="card-desc uppercase font-light">05 October — 18 January 2027<br>Paris, France</p>
                 </article>
             </div>
         </section>

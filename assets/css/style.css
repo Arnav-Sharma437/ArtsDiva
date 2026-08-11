@@ -93,7 +93,7 @@ ul {
 
 .section-title {
   font-size: 34px;
-  font-weight: 500;
+  font-weight: 400;
   margin-bottom: var(--space-md);
   display: flex;
   align-items: center;
@@ -101,10 +101,7 @@ ul {
 }
 
 .section-title::after {
-  content: '';
-  height: 1px;
-  background-color: var(--border-color);
-  flex-grow: 1;
+  content: none;
 }
 
 /* Layout */
@@ -340,6 +337,25 @@ header {
   font-size: 0.85rem;
 }
 
+.plain-arrows {
+  gap: 0;
+}
+
+.plain-btn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+  transition: 0.3s;
+}
+
+.plain-btn:hover {
+  opacity: 0.7;
+}
+
 .circle-btn {
   width: 40px;
   height: 40px;
@@ -398,18 +414,24 @@ header {
 
 .card-title {
   font-size: 24px;
-  margin-bottom: 4px;
+  margin-bottom: 8px;
+  font-weight: 400;
+  letter-spacing: 1px;
 }
 
 .card-meta {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: var(--space-sm);
+  color: var(--text-muted);
+  font-weight: 300;
 }
 
 .card-desc {
-  font-size: 16px;
+  font-size: 14px;
   margin-bottom: var(--space-sm);
   color: var(--text-muted);
+  font-weight: 300;
+  line-height: 1.5;
 }
 
 .pill-tags {

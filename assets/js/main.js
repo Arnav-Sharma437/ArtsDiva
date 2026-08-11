@@ -68,9 +68,18 @@ document.addEventListener('DOMContentLoaded', () => {
   
   carousels.forEach((carousel) => {
     const section = carousel.closest('.container').parentElement;
-    const prevBtn = section.querySelector('.carousel-controls .circle-btn:first-child');
-    const nextBtn = section.querySelector('.carousel-controls .circle-btn:last-child');
+    const prevBtn = section.querySelector('.carousel-controls button:first-of-type');
+    const nextBtn = section.querySelector('.carousel-controls button:last-of-type');
+    const counterSpan = section.querySelector('.carousel-controls span');
     let isAnimating = false;
+    let currentIndex = 1;
+    const totalItems = carousel.children.length; // usually 8
+    
+    const updateCounter = () => {
+      if (counterSpan) {
+        counterSpan.textContent = `${currentIndex} / ${totalItems}`;
+      }
+    };
     
     if (prevBtn && nextBtn) {
       prevBtn.addEventListener('click', () => {
@@ -96,6 +105,8 @@ document.addEventListener('DOMContentLoaded', () => {
         
         setTimeout(() => {
           isAnimating = false;
+          currentIndex = currentIndex === 1 ? totalItems : currentIndex - 1;
+          updateCounter();
         }, 500);
       });
       
@@ -117,6 +128,8 @@ document.addEventListener('DOMContentLoaded', () => {
           carousel.style.transform = 'translateX(0)';
           carousel.appendChild(firstCard);
           isAnimating = false;
+          currentIndex = currentIndex === totalItems ? 1 : currentIndex + 1;
+          updateCounter();
         }, 500);
       });
     }
