@@ -477,46 +477,74 @@
         <!-- 7. PUBLICATIONS -->
         <section class="section-padding container">
             <div class="section-header">
-                <div class="section-header-left">
-                    <h2 class="section-title uppercase" style="margin-bottom:0;">Publications</h2>
-                    <div class="title-divider"></div>
-                    <a href="#" class="link-arrow uppercase">View All <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                <div class="section-header-left" style="align-items: center; gap: 20px;">
+                    <h2 class="section-title uppercase" style="margin-bottom:0 !important; font-weight: 400; font-size: 30px;">PUBLICATIONS</h2>
+                    <div class="title-divider" style="height: 20px; width: 1px; background-color: #ddd;"></div>
+                    <a href="#" class="link-arrow" style="font-weight: 400; font-size: 13px; text-transform: none; color: var(--text-main);">View All <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
                 </div>
-                <div class="carousel-controls">
-                    <span class="uppercase">4/8</span>
-                    <button class="circle-btn" aria-label="Previous"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                    <button class="circle-btn" aria-label="Next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                <div class="carousel-controls arrow-only-controls" style="display: flex; align-items: center; gap: 15px; font-size: 13px; color: var(--text-muted);">
+                    <button class="arrow-btn" aria-label="Previous" style="background: none; border: none; cursor: pointer; color: var(--text-main); padding: 5px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <span style="min-width: 35px; text-align: center;">4 / 8</span>
+                    <button class="arrow-btn" aria-label="Next" style="background: none; border: none; cursor: pointer; color: var(--text-main); padding: 5px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
                 </div>
             </div>
             
-            <div class="grid-4">
-                <article class="card">
-                    <div class="card-image square"><img src="assets/images/exhibition_1.jpg" alt="Publication 1"></div>
-                    <p class="card-meta font-bold uppercase" style="margin-bottom: 4px; font-size: 0.75rem;">James River</p>
-                    <h3 class="card-title font-medium">The End of Nature</h3>
-                    <p class="card-desc">An extensive monograph tracing the evolution of contemporary landscape painting through River's iconic works.</p>
-                    <a href="#" class="link-arrow uppercase" style="font-size:0.75rem;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+            <div class="grid-4" style="gap: 30px; overflow: hidden; display: flex;">
+                <article class="card publication-card" style="min-width: calc(25% - 22.5px); border-bottom: 1px solid #eaeaea; padding-bottom: 15px;">
+                    <div class="card-image square" style="box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;"><img src="assets/images/frida_kahlo_two.jpg" alt="The Two Fridas" style="object-fit: contain;"></div>
+                    <p class="card-meta uppercase" style="margin-bottom: 12px !important; font-size: 11px; font-weight: 400; color: #555;">FRIDA KAHLO</p>
+                    <h3 class="card-title" style="font-weight: 400; font-size: 18px; margin-bottom: 12px !important; color: #111;">The Two Fridas</h3>
+                    <p class="card-desc" style="font-size: 13px; color: #666; margin-bottom: 20px !important; line-height: 1.5;">Two seated figures, joined by a single visible artery and shared heart, form Frida Kahlo's iconic double self-portrait.</p>
+                    <a href="#" class="link-arrow" style="font-size:13px; font-weight: 400; text-transform: none;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
                 </article>
-                <article class="card">
-                    <div class="card-image square"><img src="assets/images/exhibition_2.jpg" alt="Publication 2"></div>
-                    <p class="card-meta font-bold uppercase" style="margin-bottom: 4px; font-size: 0.75rem;">Elena Costa</p>
-                    <h3 class="card-title font-medium">Color Theory & Emotion</h3>
-                    <p class="card-desc">A deep dive into the psychology of color within abstract expressionism and Costa's signature vibrant palettes.</p>
-                    <a href="#" class="link-arrow uppercase" style="font-size:0.75rem;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                <article class="card publication-card" style="min-width: calc(25% - 22.5px); border-bottom: 1px solid #eaeaea; padding-bottom: 15px;">
+                    <div class="card-image square" style="box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;"><img src="assets/images/frida_kahlo_monkey.jpg" alt="Self-Portrait with Monkey" style="object-fit: contain;"></div>
+                    <p class="card-meta uppercase" style="margin-bottom: 12px !important; font-size: 11px; font-weight: 400; color: #555;">FRIDA KAHLO</p>
+                    <h3 class="card-title" style="font-weight: 400; font-size: 18px; margin-bottom: 12px !important; color: #111;">Self-Portrait with Monkey</h3>
+                    <p class="card-desc" style="font-size: 13px; color: #666; margin-bottom: 20px !important; line-height: 1.5;">A woman in a red headwrap and golden top gazes directly at the viewer, a small monkey resting near her shoulder, framed by dense green foliage.</p>
+                    <a href="#" class="link-arrow" style="font-size:13px; font-weight: 400; text-transform: none;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
                 </article>
-                <article class="card">
-                    <div class="card-image square"><img src="assets/images/exhibition_3.jpg" alt="Publication 3"></div>
-                    <p class="card-meta font-bold uppercase" style="margin-bottom: 4px; font-size: 0.75rem;">David Chen</p>
-                    <h3 class="card-title font-medium">Form in Space</h3>
-                    <p class="card-desc">Comprehensive catalog of Chen's bronze sculptures, exploring the relationship between movement, gravity, and material.</p>
-                    <a href="#" class="link-arrow uppercase" style="font-size:0.75rem;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                <article class="card publication-card" style="min-width: calc(25% - 22.5px); border-bottom: 1px solid #eaeaea; padding-bottom: 15px;">
+                    <div class="card-image square" style="box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;"><img src="assets/images/exhibition_1.jpg" alt="Galloping Horse in Red" style="object-fit: contain;"></div>
+                    <p class="card-meta uppercase" style="margin-bottom: 12px !important; font-size: 11px; font-weight: 400; color: #555;">M.F. HUSAIN</p>
+                    <h3 class="card-title" style="font-weight: 400; font-size: 18px; margin-bottom: 12px !important; color: #111;">Galloping Horse in Red</h3>
+                    <p class="card-desc" style="font-size: 13px; color: #666; margin-bottom: 20px !important; line-height: 1.5;">A single white horse, rendered in bold, fractured brushstrokes, gallops across a deep red background, signed 'Husain' in the lower right.</p>
+                    <a href="#" class="link-arrow" style="font-size:13px; font-weight: 400; text-transform: none;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
                 </article>
-                <article class="card">
-                    <div class="card-image square"><img src="assets/images/exhibition_4.jpg" alt="Publication 4"></div>
-                    <p class="card-meta font-bold uppercase" style="margin-bottom: 4px; font-size: 0.75rem;">Studio Archive</p>
-                    <h3 class="card-title font-medium">Minimalism Today</h3>
-                    <p class="card-desc">Essays and critical reviews on the state of minimalist art in the 21st century, featuring 50 prominent global artists.</p>
-                    <a href="#" class="link-arrow uppercase" style="font-size:0.75rem;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                <article class="card publication-card" style="min-width: calc(25% - 22.5px); border-bottom: 1px solid #eaeaea; padding-bottom: 15px;">
+                    <div class="card-image square" style="box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;"><img src="assets/images/husain_herd.jpg" alt="Herd of Horses" style="object-fit: contain;"></div>
+                    <p class="card-meta uppercase" style="margin-bottom: 12px !important; font-size: 11px; font-weight: 400; color: #555;">M.F. HUSAIN</p>
+                    <h3 class="card-title" style="font-weight: 400; font-size: 18px; margin-bottom: 12px !important; color: #111;">Herd of Horses</h3>
+                    <p class="card-desc" style="font-size: 13px; color: #666; margin-bottom: 20px !important; line-height: 1.5;">Six horses in white, yellow, blue, orange, and cream surge forward in a tightly interlocked composition, outlined in bold black against...</p>
+                    <a href="#" class="link-arrow" style="font-size:13px; font-weight: 400; text-transform: none;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </article>
+                <article class="card publication-card" style="min-width: calc(25% - 22.5px); border-bottom: 1px solid #eaeaea; padding-bottom: 15px;">
+                    <div class="card-image square" style="box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;"><img src="assets/images/frida_kahlo_two.jpg" alt="The Two Fridas" style="object-fit: contain;"></div>
+                    <p class="card-meta uppercase" style="margin-bottom: 12px !important; font-size: 11px; font-weight: 400; color: #555;">FRIDA KAHLO</p>
+                    <h3 class="card-title" style="font-weight: 400; font-size: 18px; margin-bottom: 12px !important; color: #111;">The Two Fridas</h3>
+                    <p class="card-desc" style="font-size: 13px; color: #666; margin-bottom: 20px !important; line-height: 1.5;">Two seated figures, joined by a single visible artery and shared heart, form Frida Kahlo's iconic double self-portrait.</p>
+                    <a href="#" class="link-arrow" style="font-size:13px; font-weight: 400; text-transform: none;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </article>
+                <article class="card publication-card" style="min-width: calc(25% - 22.5px); border-bottom: 1px solid #eaeaea; padding-bottom: 15px;">
+                    <div class="card-image square" style="box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;"><img src="assets/images/frida_kahlo_monkey.jpg" alt="Self-Portrait with Monkey" style="object-fit: contain;"></div>
+                    <p class="card-meta uppercase" style="margin-bottom: 12px !important; font-size: 11px; font-weight: 400; color: #555;">FRIDA KAHLO</p>
+                    <h3 class="card-title" style="font-weight: 400; font-size: 18px; margin-bottom: 12px !important; color: #111;">Self-Portrait with Monkey</h3>
+                    <p class="card-desc" style="font-size: 13px; color: #666; margin-bottom: 20px !important; line-height: 1.5;">A woman in a red headwrap and golden top gazes directly at the viewer, a small monkey resting near her shoulder, framed by dense green foliage.</p>
+                    <a href="#" class="link-arrow" style="font-size:13px; font-weight: 400; text-transform: none;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </article>
+                <article class="card publication-card" style="min-width: calc(25% - 22.5px); border-bottom: 1px solid #eaeaea; padding-bottom: 15px;">
+                    <div class="card-image square" style="box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;"><img src="assets/images/exhibition_1.jpg" alt="Galloping Horse in Red" style="object-fit: contain;"></div>
+                    <p class="card-meta uppercase" style="margin-bottom: 12px !important; font-size: 11px; font-weight: 400; color: #555;">M.F. HUSAIN</p>
+                    <h3 class="card-title" style="font-weight: 400; font-size: 18px; margin-bottom: 12px !important; color: #111;">Galloping Horse in Red</h3>
+                    <p class="card-desc" style="font-size: 13px; color: #666; margin-bottom: 20px !important; line-height: 1.5;">A single white horse, rendered in bold, fractured brushstrokes, gallops across a deep red background, signed 'Husain' in the lower right.</p>
+                    <a href="#" class="link-arrow" style="font-size:13px; font-weight: 400; text-transform: none;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                </article>
+                <article class="card publication-card" style="min-width: calc(25% - 22.5px); border-bottom: 1px solid #eaeaea; padding-bottom: 15px;">
+                    <div class="card-image square" style="box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 25px;"><img src="assets/images/husain_herd.jpg" alt="Herd of Horses" style="object-fit: contain;"></div>
+                    <p class="card-meta uppercase" style="margin-bottom: 12px !important; font-size: 11px; font-weight: 400; color: #555;">M.F. HUSAIN</p>
+                    <h3 class="card-title" style="font-weight: 400; font-size: 18px; margin-bottom: 12px !important; color: #111;">Herd of Horses</h3>
+                    <p class="card-desc" style="font-size: 13px; color: #666; margin-bottom: 20px !important; line-height: 1.5;">Six horses in white, yellow, blue, orange, and cream surge forward in a tightly interlocked composition, outlined in bold black against...</p>
+                    <a href="#" class="link-arrow" style="font-size:13px; font-weight: 400; text-transform: none;">Read More <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
                 </article>
             </div>
         </section>
