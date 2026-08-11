@@ -414,21 +414,21 @@ header {
 
 .card-title {
   font-size: 24px;
-  margin-bottom: 8px;
+  margin-bottom: 15px;
   font-weight: 400;
   letter-spacing: 1px;
 }
 
 .card-meta {
   font-size: 14px;
-  margin-bottom: var(--space-sm);
+  margin-bottom: 15px;
   color: var(--text-muted);
   font-weight: 300;
 }
 
 .card-desc {
   font-size: 14px;
-  margin-bottom: var(--space-sm);
+  margin-bottom: 15px;
   color: var(--text-muted);
   font-weight: 300;
   line-height: 1.5;
@@ -453,18 +453,40 @@ header {
   letter-spacing: 1px;
 }
 
+.pill.dark-pill {
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+}
+
 .icon-row {
   display: flex;
   align-items: center;
   gap: 8px;
   font-size: 0.85rem;
   color: var(--text-muted);
-  margin-bottom: 4px;
+  margin-bottom: 15px;
 }
 
 .icon-row svg {
   width: 14px;
   height: 14px;
+}
+
+.event-card {
+  background-color: var(--bg-secondary);
+}
+
+.event-card.elevated-card {
+  background-color: #fff;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+}
+
+.event-card-content {
+  padding: 24px;
+}
+
+.event-card-content .card-title {
+  font-size: 20px;
 }
 
 /* Split Section */

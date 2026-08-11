@@ -164,98 +164,209 @@
                     <a href="#" class="link-arrow" style="margin-top: var(--space-sm); font-weight: 400; font-size: 14px;">Explore Collection <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
                 </div>
             </div>
-        </section>
-
-        <!-- 5. FORTHCOMING EVENTS -->
+            <!-- 5. FORTHCOMING EVENTS -->
         <section class="section-padding container">
             <div class="section-header">
                 <div class="section-header-left">
-                    <h2 class="section-title uppercase" style="margin-bottom:0;">Forthcoming Events</h2>
+                    <h2 class="section-title uppercase font-light" style="margin-bottom:0;">Forthcoming Events</h2>
                     <div class="title-divider"></div>
-                    <a href="#" class="link-arrow uppercase">View All <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
+                    <a href="#" class="link-arrow uppercase">View All <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg></a>
                 </div>
-                <div class="carousel-controls">
-                    <span class="uppercase">4/8</span>
-                    <button class="circle-btn" aria-label="Previous"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
-                    <button class="circle-btn" aria-label="Next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
+                <div class="carousel-controls plain-arrows">
+                    <button class="plain-btn" aria-label="Previous"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 18 9 12 15 6"></polyline></svg></button>
+                    <span class="uppercase font-medium" style="margin: 0 10px;">2 / 8</span>
+                    <button class="plain-btn" aria-label="Next"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="9 18 15 12 9 6"></polyline></svg></button>
                 </div>
             </div>
             
-            <div class="grid-4">
-                <article class="card">
+            <div class="grid-4" id="events-grid">
+                <article class="card event-card">
                     <div class="card-image">
-                        <div class="pill-tags"><span class="pill">Tours</span></div>
-                        <img src="assets/images/split_3.jpg" alt="Gallery tour">
+                        <div class="pill-tags">
+                            <span class="pill dark-pill">TOURS</span>
+                        </div>
+                        <img src="assets/images/split_1.jpg" alt="Exclusive Art Acquisition Evening">
                     </div>
-                    <h3 class="card-title font-medium">Exclusive Gallery Tour</h3>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        <span>25 October 2026</span>
-                    </div>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        <span>14:00 - 15:30</span>
-                    </div>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span>Main Gallery, NY</span>
+                    <div class="event-card-content">
+                        <h3 class="card-title font-light">Exclusive Art Acquisition Evening</h3>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>10 October 2026</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>7:00 PM – 9:30 PM</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Singapore</span>
+                        </div>
                     </div>
                 </article>
-                <article class="card">
+                <article class="card event-card elevated-card">
                     <div class="card-image">
-                        <div class="pill-tags"><span class="pill">Learning</span><span class="pill">Workshop</span></div>
-                        <img src="assets/images/split_1.jpg" alt="Art Workshop">
+                        <div class="pill-tags">
+                            <span class="pill dark-pill">LEARNING</span>
+                            <span class="pill dark-pill">WORKSHOPS</span>
+                        </div>
+                        <img src="assets/images/split_2.jpg" alt="The Future of Contemporary Art">
                     </div>
-                    <h3 class="card-title font-medium">The Palette of Contemporary Art</h3>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        <span>02 November 2026</span>
-                    </div>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        <span>10:00 - 12:00</span>
-                    </div>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span>Studio 2, NY</span>
+                    <div class="event-card-content">
+                        <h3 class="card-title font-light">The Future of Contemporary Art</h3>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>17 October 2026</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>3:00 PM – 5:00 PM</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>New York, USA</span>
+                        </div>
                     </div>
                 </article>
-                <article class="card">
+                <article class="card event-card">
                     <div class="card-image">
-                        <div class="pill-tags"><span class="pill">Book Signings</span></div>
-                        <img src="assets/images/exhibition_2.jpg" alt="Book signing">
+                        <div class="pill-tags">
+                            <span class="pill dark-pill">BOOK SIGNINGS</span>
+                        </div>
+                        <img src="assets/images/exhibition_1.jpg" alt="Artist Walkthrough">
                     </div>
-                    <h3 class="card-title font-medium">Artist Walkthrough</h3>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        <span>15 November 2026</span>
-                    </div>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        <span>18:00 - 20:00</span>
-                    </div>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span>West Wing, NY</span>
+                    <div class="event-card-content">
+                        <h3 class="card-title font-light">Artist Walkthrough: Jeffrey Gibson Flags</h3>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>10 October 2026</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>7:00 PM – 9:30 PM</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Singapore</span>
+                        </div>
                     </div>
                 </article>
-                <article class="card">
+                <article class="card event-card">
                     <div class="card-image">
-                        <div class="pill-tags"><span class="pill">Learning</span></div>
-                        <img src="assets/images/exhibition_4.jpg" alt="Lecture">
+                        <div class="pill-tags">
+                            <span class="pill dark-pill">LEARNING</span>
+                            <span class="pill dark-pill">WORKSHOPS</span>
+                        </div>
+                        <img src="assets/images/exhibition_2.jpg" alt="Artist Walkthrough">
                     </div>
-                    <h3 class="card-title font-medium">Minimalism Masterclass</h3>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
-                        <span>01 December 2026</span>
+                    <div class="event-card-content">
+                        <h3 class="card-title font-light">Artist Walkthrough: Jeffrey Gibson Flags</h3>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>10 October 2026</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>7:00 PM – 9:30 PM</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Singapore</span>
+                        </div>
                     </div>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
-                        <span>11:00 - 13:00</span>
+                </article>
+                <!-- Duplicate for slider loop -->
+                <article class="card event-card">
+                    <div class="card-image">
+                        <div class="pill-tags">
+                            <span class="pill dark-pill">TOURS</span>
+                        </div>
+                        <img src="assets/images/split_1.jpg" alt="Exclusive Art Acquisition Evening">
                     </div>
-                    <div class="icon-row">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
-                        <span>Auditorium, NY</span>
+                    <div class="event-card-content">
+                        <h3 class="card-title font-light">Exclusive Art Acquisition Evening</h3>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>10 October 2026</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>7:00 PM – 9:30 PM</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Singapore</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card event-card elevated-card">
+                    <div class="card-image">
+                        <div class="pill-tags">
+                            <span class="pill dark-pill">LEARNING</span>
+                            <span class="pill dark-pill">WORKSHOPS</span>
+                        </div>
+                        <img src="assets/images/split_2.jpg" alt="The Future of Contemporary Art">
+                    </div>
+                    <div class="event-card-content">
+                        <h3 class="card-title font-light">The Future of Contemporary Art</h3>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>17 October 2026</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>3:00 PM – 5:00 PM</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>New York, USA</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card event-card">
+                    <div class="card-image">
+                        <div class="pill-tags">
+                            <span class="pill dark-pill">BOOK SIGNINGS</span>
+                        </div>
+                        <img src="assets/images/exhibition_1.jpg" alt="Artist Walkthrough">
+                    </div>
+                    <div class="event-card-content">
+                        <h3 class="card-title font-light">Artist Walkthrough: Jeffrey Gibson Flags</h3>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>10 October 2026</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>7:00 PM – 9:30 PM</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Singapore</span>
+                        </div>
+                    </div>
+                </article>
+                <article class="card event-card">
+                    <div class="card-image">
+                        <div class="pill-tags">
+                            <span class="pill dark-pill">LEARNING</span>
+                            <span class="pill dark-pill">WORKSHOPS</span>
+                        </div>
+                        <img src="assets/images/exhibition_2.jpg" alt="Artist Walkthrough">
+                    </div>
+                    <div class="event-card-content">
+                        <h3 class="card-title font-light">Artist Walkthrough: Jeffrey Gibson Flags</h3>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+                            <span>10 October 2026</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+                            <span>7:00 PM – 9:30 PM</span>
+                        </div>
+                        <div class="icon-row">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                            <span>Singapore</span>
+                        </div>
                     </div>
                 </article>
             </div>
