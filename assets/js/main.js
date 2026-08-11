@@ -19,8 +19,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let slideInterval;
     const intervalTime = 5000;
     
-    // Initialize first slide
-    slides[0].classList.add('active');
+    // Initialize first slide fully
     
     const renderPagination = () => {
       if (!paginationContainer) return;
@@ -69,7 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
       sliderContainer.addEventListener('mouseleave', startSlide);
     }
     
-    renderPagination();
+    goToSlide(0);
     startSlide();
   }
 
