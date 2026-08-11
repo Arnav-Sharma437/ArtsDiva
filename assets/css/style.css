@@ -149,7 +149,7 @@ header {
 
 .nav-links {
   display: flex;
-  gap: 40px;
+  gap: 60px;
 }
 
 .nav-links a {
@@ -158,7 +158,7 @@ header {
   letter-spacing: 1.5px;
 }
 
-.nav-links a:hover {
+.nav-links a:hover, .nav-links a.active {
   text-decoration: underline;
   text-underline-offset: 4px;
 }
@@ -166,7 +166,7 @@ header {
 .header-actions {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 40px;
   font-size: 16px;
   letter-spacing: 1.5px;
 }
@@ -219,7 +219,7 @@ header {
 .hero-eyebrow {
   font-size: 16px;
   margin-bottom: var(--space-md);
-  letter-spacing: 4px;
+  letter-spacing: 1px;
 }
 
 .hero-headline {
@@ -238,66 +238,63 @@ header {
 
 .hero-buttons {
   display: flex;
-  gap: var(--space-sm);
 }
 
 .btn {
-  padding: 1rem 2rem;
+  padding: 15px 30px;
   font-size: 16px;
   font-weight: 500;
   cursor: pointer;
-  border: none;
+  border: 1px solid #fff;
   background: transparent;
+  color: #fff;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  transition: all 0.3s ease;
 }
 
-.btn-white {
-  background-color: #fff;
-  color: #000;
+.hero-buttons .btn:not(:last-child) {
+  border-right: none;
 }
 
-.btn-white:hover {
-  background-color: #e6e4e0;
-}
-
-.btn-outline-white {
-  border: 1px solid #fff;
-  color: #fff;
-}
-
-.btn-outline-white:hover {
-  background-color: #fff;
-  color: #000;
+.btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .hero-pagination {
   position: absolute;
-  bottom: var(--space-xl);
-  right: var(--space-md);
+  bottom: 8%;
+  right: 5%;
   display: flex;
   align-items: center;
-  gap: var(--space-sm);
+  gap: 15px;
   color: #fff;
 }
 
-.pagination-dots {
+.pagination-circle {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.7);
   display: flex;
-  gap: 8px;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
 }
 
 .dot {
-  width: 6px;
-  height: 6px;
-  background: rgba(255,255,255,0.3);
+  width: 4px;
+  height: 4px;
+  background: #fff;
   border-radius: 50%;
   cursor: pointer;
   transition: 0.3s;
+  opacity: 0.5;
 }
 
-.dot.active {
-  background: #fff;
+.dot.active, .dot:hover {
+  opacity: 1;
 }
 
 /* Sections common */
