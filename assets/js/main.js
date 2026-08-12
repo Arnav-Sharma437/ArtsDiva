@@ -75,10 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
   // Smooth Looping Carousel
   const carousels = document.querySelectorAll('.slider-track');
   
-  carousels.forEach((carousel) => {
+  carousels.forEach((carousel, index) => {
     const section = carousel.closest('.container');
-    const prevBtn = section.querySelector('.carousel-controls button:first-of-type');
-    const nextBtn = section.querySelector('.carousel-controls button:last-of-type');
+    // For publications it uses arrow-only-controls with .arrow-btn
+    const prevBtn = section.querySelector('.carousel-controls button:first-of-type, .arrow-btn:first-of-type');
+    const nextBtn = section.querySelector('.carousel-controls button:last-of-type, .arrow-btn:last-of-type');
     const counterSpan = section.querySelector('.carousel-controls span');
     let isAnimating = false;
     let currentIndex = 1;
@@ -89,58 +90,85 @@ document.addEventListener('DOMContentLoaded', () => {
         counterSpan.textContent = `${currentIndex} / ${totalItems}`;
       }
     };
-    
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', () => {
-        if (isAnimating) return;
-        isAnimating = true;
-        
-        const lastCard = carousel.lastElementChild;
-        const cardWidth = lastCard.offsetWidth;
-        const gap = parseInt(window.getComputedStyle(carousel).gap) || 32;
-        const moveDistance = cardWidth + gap;
-        
-        // Move element physically before animation, then offset with transform to appear in same place
-        carousel.prepend(lastCard);
-        carousel.style.transition = 'none';
-        carousel.style.transform = `translateX(-${moveDistance}px)`;
-        
-        // Force reflow
-        carousel.offsetHeight; 
-        
-        // Animate to 0
-        carousel.style.transition = 'transform 0.5s ease';
-        carousel.style.transform = 'translateX(0)';
-        
-        setTimeout(() => {
-          isAnimating = false;
-          currentIndex = currentIndex === 1 ? totalItems : currentIndex - 1;
-          updateCounter();
-        }, 500);
-      });
+
+    const handlePrev = () => {
+      if (isAnimating) return;
+      isAnimating = true;
       
-      nextBtn.addEventListener('click', () => {
-        if (isAnimating) return;
-        isAnimating = true;
-        
-        const firstCard = carousel.firstElementChild;
-        const cardWidth = firstCard.offsetWidth;
-        const gap = parseInt(window.getComputedStyle(carousel).gap) || 32;
-        const moveDistance = cardWidth + gap;
-        
-        // Animate out
-        carousel.style.transition = 'transform 0.5s ease';
-        carousel.style.transform = `translateX(-${moveDistance}px)`;
-        
-        setTimeout(() => {
-          carousel.style.transition = 'none';
-          carousel.style.transform = 'translateX(0)';
-          carousel.appendChild(firstCard);
-          isAnimating = false;
-          currentIndex = currentIndex === totalItems ? 1 : currentIndex + 1;
-          updateCounter();
-        }, 500);
-      });
+      const lastCard = carousel.lastElementChild;
+      const cardWidth = lastCard.offsetWidth;
+      const gap = parseInt(window.getComputedStyle(carousel).gap) || 32;
+      const moveDistance = cardWidth + gap;
+      
+      carousel.prepend(lastCard);
+      carousel.style.transition = 'none';
+      carousel.style.transform = `translateX(-${moveDistance}px)`;
+      
+      carousel.offsetHeight; // Force reflow
+      
+      carousel.style.transition = 'transform 0.5s ease';
+      carousel.style.transform = 'translateX(0)';
+      
+      setTimeout(() => {
+        carousel.style.transition = 'none';
+        isAnimating = false;
+        currentIndex = currentIndex === 1 ? totalItems : currentIndex - 1;
+        updateCounter();
+      }, 500);
+    };
+
+    const handleNext = () => {
+      if (isAnimating) return;
+      isAnimating = true;
+      
+      const firstCard = carousel.firstElementChild;
+      const cardWidth = firstCard.offsetWidth;
+      const gap = parseInt(window.getComputedStyle(carousel).gap) || 32;
+      const moveDistance = cardWidth + gap;
+      
+      carousel.style.transition = 'transform 0.5s ease';
+      carousel.style.transform = `translateX(-${moveDistance}px)`;
+      
+      setTimeout(() => {
+        carousel.style.transition = 'none';
+        carousel.style.transform = 'translateX(0)';
+        carousel.appendChild(firstCard);
+        isAnimating = false;
+        currentIndex = currentIndex === totalItems ? 1 : currentIndex + 1;
+        updateCounter();
+      }, 500);
+    };
+
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', () => { stopAutoScroll(); handlePrev(); startAutoScroll(); });
+      nextBtn.addEventListener('click', () => { stopAutoScroll(); handleNext(); startAutoScroll(); });
     }
+
+    // Auto Scroll Logic
+    // Index 0: Exhibitions -> slides right (handleNext)
+    // Index 1: Events -> slides left (handlePrev)
+    // Index 2: Publications -> slides right (handleNext)
+    const direction = (index === 1) ? 'prev' : 'next';
+    let autoScrollInterval;
+
+    const startAutoScroll = () => {
+      autoScrollInterval = setInterval(() => {
+        if (direction === 'next') {
+          handleNext();
+        } else {
+          handlePrev();
+        }
+      }, 3000);
+    };
+
+    const stopAutoScroll = () => {
+      clearInterval(autoScrollInterval);
+    };
+
+    carousel.addEventListener('mouseenter', stopAutoScroll);
+    carousel.addEventListener('mouseleave', startAutoScroll);
+
+    startAutoScroll();
   });
 });
+

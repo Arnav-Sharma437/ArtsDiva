@@ -800,11 +800,10 @@ footer {
 /* Enforce 15px margin-bottom for all text elements */
 h1, h2, h3, h4, h5, h6, p, .card-title, .card-meta, .card-desc, .icon-row, .hero-eyebrow, .hero-headline, .hero-subheading, .section-title { margin-bottom: 15px !important; }
 
- / *   S l i d e r   S t y l e s   * / 
- . s l i d e r - c o n t a i n e r   {   o v e r f l o w :   h i d d e n ;   m a r g i n - l e f t :   - 1 5 p x ;   m a r g i n - r i g h t :   - 1 5 p x ;   p a d d i n g - l e f t :   1 5 p x ;   p a d d i n g - r i g h t :   1 5 p x ;   } 
- . s l i d e r - t r a c k   {   d i s p l a y :   f l e x ;   g a p :   v a r ( - - s p a c e - m d ) ;   o v e r f l o w - x :   a u t o ;   s c r o l l - b e h a v i o r :   s m o o t h ;   s c r o l l - s n a p - t y p e :   x   m a n d a t o r y ;   - m s - o v e r f l o w - s t y l e :   n o n e ;   s c r o l l b a r - w i d t h :   n o n e ;   } 
- . s l i d e r - t r a c k : : - w e b k i t - s c r o l l b a r   {   d i s p l a y :   n o n e ;   } 
- . s l i d e r - t r a c k   >   *   {   f l e x :   0   0   c a l c ( 2 5 %   -   ( v a r ( - - s p a c e - m d )   *   3   /   4 ) ) ;   s c r o l l - s n a p - a l i g n :   s t a r t ;   m i n - w i d t h :   0 ;   } 
- @ m e d i a   ( m a x - w i d t h :   1 0 2 4 p x )   {   . s l i d e r - t r a c k   >   *   {   f l e x :   0   0   c a l c ( 5 0 %   -   ( v a r ( - - s p a c e - m d )   /   2 ) ) ;   }   } 
- @ m e d i a   ( m a x - w i d t h :   7 6 8 p x )   {   . s l i d e r - t r a c k   >   *   {   f l e x :   0   0   1 0 0 % ;   }   }  
- 
+ /* Slider Styles */
+.slider-container { overflow: hidden; margin-left: -15px; margin-right: -15px; padding-left: 15px; padding-right: 15px; }
+.slider-track { display: flex; gap: var(--space-md); overflow-x: auto; scroll-behavior: smooth; scroll-snap-type: x mandatory; -ms-overflow-style: none; scrollbar-width: none; }
+.slider-track::-webkit-scrollbar { display: none; }
+.slider-track > * { flex: 0 0 calc(25% - (var(--space-md) * 3 / 4)); scroll-snap-align: start; min-width: 0; }
+@media (max-width: 1024px) { .slider-track > * { flex: 0 0 calc(50% - (var(--space-md) / 2)); } }
+@media (max-width: 768px) { .slider-track > * { flex: 0 0 100%; } }
