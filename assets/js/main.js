@@ -72,103 +72,87 @@ document.addEventListener('DOMContentLoaded', () => {
     startSlide();
   }
 
-  // Smooth Looping Carousel
+  // Continuous Looping Marquee Carousel
   const carousels = document.querySelectorAll('.slider-track');
   
   carousels.forEach((carousel, index) => {
     const section = carousel.closest('.container');
-    // For publications it uses arrow-only-controls with .arrow-btn
     const prevBtn = section.querySelector('.carousel-controls button:first-of-type, .arrow-btn:first-of-type');
     const nextBtn = section.querySelector('.carousel-controls button:last-of-type, .arrow-btn:last-of-type');
     const counterSpan = section.querySelector('.carousel-controls span');
-    let isAnimating = false;
-    let currentIndex = 1;
-    const totalItems = carousel.children.length; // usually 8
     
-    const updateCounter = () => {
-      if (counterSpan) {
-        counterSpan.textContent = `${currentIndex} / ${totalItems}`;
-      }
-    };
-
-    const handlePrev = () => {
-      if (isAnimating) return;
-      isAnimating = true;
-      
-      const lastCard = carousel.lastElementChild;
-      const cardWidth = lastCard.offsetWidth;
-      const gap = parseInt(window.getComputedStyle(carousel).gap) || 32;
-      const moveDistance = cardWidth + gap;
-      
-      carousel.prepend(lastCard);
-      carousel.style.transition = 'none';
-      carousel.style.transform = `translateX(-${moveDistance}px)`;
-      
-      carousel.offsetHeight; // Force reflow
-      
-      carousel.style.transition = 'transform 0.5s ease';
-      carousel.style.transform = 'translateX(0)';
-      
-      setTimeout(() => {
-        carousel.style.transition = 'none';
-        isAnimating = false;
-        currentIndex = currentIndex === 1 ? totalItems : currentIndex - 1;
-        updateCounter();
-      }, 500);
-    };
-
-    const handleNext = () => {
-      if (isAnimating) return;
-      isAnimating = true;
-      
-      const firstCard = carousel.firstElementChild;
-      const cardWidth = firstCard.offsetWidth;
-      const gap = parseInt(window.getComputedStyle(carousel).gap) || 32;
-      const moveDistance = cardWidth + gap;
-      
-      carousel.style.transition = 'transform 0.5s ease';
-      carousel.style.transform = `translateX(-${moveDistance}px)`;
-      
-      setTimeout(() => {
-        carousel.style.transition = 'none';
-        carousel.style.transform = 'translateX(0)';
-        carousel.appendChild(firstCard);
-        isAnimating = false;
-        currentIndex = currentIndex === totalItems ? 1 : currentIndex + 1;
-        updateCounter();
-      }, 500);
-    };
-
-    if (prevBtn && nextBtn) {
-      prevBtn.addEventListener('click', () => { stopAutoScroll(); handlePrev(); startAutoScroll(); });
-      nextBtn.addEventListener('click', () => { stopAutoScroll(); handleNext(); startAutoScroll(); });
-    }
+    // Clone all items for infinite scrolling
+    const items = Array.from(carousel.children);
+    items.forEach(item => {
+      carousel.appendChild(item.cloneNode(true));
+    });
 
     // Auto Scroll Logic
-    // Index 0: Exhibitions -> slides right (handleNext)
-    // Index 1: Events -> slides left (handlePrev)
-    // Index 2: Publications -> slides right (handleNext)
-    const direction = (index === 1) ? 'prev' : 'next';
-    let autoScrollInterval;
+    // Index 0: Exhibitions -> slides right (content moves left -> direction 1)
+    // Index 1: Events -> slides left (content moves right -> direction -1)
+    // Index 2: Publications -> slides right (content moves left -> direction 1)
+    let defaultDirection = (index === 1) ? -1 : 1;
+    let direction = defaultDirection;
+    let speed = 1.5; // pixels per frame
+    let isPaused = false;
+    let position = 0;
 
-    const startAutoScroll = () => {
-      autoScrollInterval = setInterval(() => {
-        if (direction === 'next') {
-          handleNext();
-        } else {
-          handlePrev();
+    // Reset scroll positions initially
+    setTimeout(() => {
+      const halfWidth = carousel.scrollWidth / 2;
+      if (direction === -1) {
+        position = halfWidth;
+        carousel.scrollLeft = position;
+      }
+    }, 100);
+
+    const tick = () => {
+      if (!isPaused) {
+        const halfWidth = carousel.scrollWidth / 2;
+        position += speed * direction;
+
+        if (direction === 1) { // Moving left
+          if (position >= halfWidth) {
+            position -= halfWidth;
+          }
+        } else { // Moving right
+          if (position <= 0) {
+            position += halfWidth;
+          }
         }
-      }, 3000);
+        carousel.scrollLeft = position;
+      }
+      requestAnimationFrame(tick);
     };
 
-    const stopAutoScroll = () => {
-      clearInterval(autoScrollInterval);
-    };
+    // Pause on hover
+    carousel.addEventListener('mouseenter', () => isPaused = true);
+    carousel.addEventListener('mouseleave', () => isPaused = false);
 
-    carousel.addEventListener('mouseenter', stopAutoScroll);
-    carousel.addEventListener('mouseleave', startAutoScroll);
+    // Arrow controls - fast forward/rewind temporarily
+    if (prevBtn && nextBtn) {
+      let arrowTimeout;
+      prevBtn.addEventListener('click', () => {
+        direction = -1;
+        speed = 10; // Speed up temporarily
+        clearTimeout(arrowTimeout);
+        arrowTimeout = setTimeout(() => {
+          direction = defaultDirection;
+          speed = 1.5;
+        }, 500);
+      });
+      nextBtn.addEventListener('click', () => {
+        direction = 1;
+        speed = 10; // Speed up temporarily
+        clearTimeout(arrowTimeout);
+        arrowTimeout = setTimeout(() => {
+          direction = defaultDirection;
+          speed = 1.5;
+        }, 500);
+      });
+    }
 
-    startAutoScroll();
+    requestAnimationFrame(tick);
   });
 });
 
