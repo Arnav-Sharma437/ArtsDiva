@@ -161,7 +161,7 @@ export default async function Home() {
       {/* Split Section 1 */}
       <section className="section-padding container">
         <div className="split-section split-left-flush" style={{ alignItems: "center" }}>
-          <div className="split-image relative" style={{ minHeight: "400px" }}>
+          <div className="split-image relative" style={{ height: "600px", minHeight: "600px" }}>
             <Image src="/assets/images/split_1.jpg" alt="Artist mixing paint" fill style={{objectFit: "cover"}} />
           </div>
           <div className="split-content">
@@ -222,7 +222,7 @@ export default async function Home() {
       {/* Split Section 2 */}
       <section className="section-padding bg-secondary container">
         <div className="split-section split-right-flush reversed" style={{ alignItems: "center" }}>
-          <div className="split-image relative" style={{ minHeight: "400px" }}>
+          <div className="split-image relative" style={{ height: "600px", minHeight: "600px" }}>
             <Image src="/assets/images/split_2.jpg" alt="Museum gallery" fill style={{objectFit: "cover"}} />
           </div>
           <div className="split-content">
@@ -276,7 +276,7 @@ export default async function Home() {
       {/* Split Section 3 */}
       <section className="section-padding container">
         <div className="split-section split-left-flush" style={{ alignItems: "center" }}>
-          <div className="split-image relative" style={{ minHeight: "400px" }}>
+          <div className="split-image relative" style={{ height: "600px", minHeight: "600px" }}>
             <Image src="/assets/images/split_3.jpg" alt="Gallery wall" fill style={{objectFit: "cover"}} />
           </div>
           <div className="split-content">
