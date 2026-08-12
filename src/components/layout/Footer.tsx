@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Facebook, Twitter, Linkedin, Icon as PinterestIcon, Instagram, MapPin, Mail, Phone } from "lucide-react";
+import { MapPin, Mail, Phone } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -19,10 +19,10 @@ export default function Footer() {
             </div>
             <p className="uppercase" style={{ fontSize: "13px", marginBottom: "15px", color: "#333" }}>SOCIAL</p>
             <div className="social-icons" style={{ display: "flex", gap: "10px" }}>
-              <a href="#" className="circle-btn" aria-label="Facebook" style={{ width: "34px", height: "34px", borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", color: "#555", textDecoration: "none" }}><Facebook size={15} /></a>
-              <a href="#" className="circle-btn" aria-label="X (Twitter)" style={{ width: "34px", height: "34px", borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", color: "#555", textDecoration: "none" }}><Twitter size={15} /></a>
-              <a href="#" className="circle-btn" aria-label="LinkedIn" style={{ width: "34px", height: "34px", borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", color: "#555", textDecoration: "none" }}><Linkedin size={15} /></a>
-              <a href="#" className="circle-btn" aria-label="Instagram" style={{ width: "34px", height: "34px", borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", color: "#555", textDecoration: "none" }}><Instagram size={15} /></a>
+              <a href="#" className="circle-btn" aria-label="Facebook" style={{ width: "34px", height: "34px", borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", color: "#555", textDecoration: "none" }}>F</a>
+              <a href="#" className="circle-btn" aria-label="X (Twitter)" style={{ width: "34px", height: "34px", borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", color: "#555", textDecoration: "none" }}>X</a>
+              <a href="#" className="circle-btn" aria-label="LinkedIn" style={{ width: "34px", height: "34px", borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", color: "#555", textDecoration: "none" }}>L</a>
+              <a href="#" className="circle-btn" aria-label="Instagram" style={{ width: "34px", height: "34px", borderRadius: "50%", background: "#fff", display: "flex", alignItems: "center", justifyContent: "center", color: "#555", textDecoration: "none" }}>I</a>
             </div>
           </div>
           <div className="footer-col">

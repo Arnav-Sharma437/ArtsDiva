@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
-import connectDB from '../lib/mongodb';
-import Artist from '../models/Artist';
-import Category from '../models/Category';
-import Medium from '../models/Medium';
-import Artwork from '../models/Artwork';
-import Exhibition from '../models/Exhibition';
-import Event from '../models/Event';
-import Publication from '../models/Publication';
+import connectDB from '../src/lib/mongodb';
+import Artist from '../src/models/Artist';
+import Category from '../src/models/Category';
+import Medium from '../src/models/Medium';
+import Artwork from '../src/models/Artwork';
+import Exhibition from '../src/models/Exhibition';
+import Event from '../src/models/Event';
+import Publication from '../src/models/Publication';
 
 const seed = async () => {
   try {
