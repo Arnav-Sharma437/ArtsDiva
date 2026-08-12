@@ -73,10 +73,10 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // Smooth Looping Carousel
-  const carousels = document.querySelectorAll('.grid-4');
+  const carousels = document.querySelectorAll('.slider-track');
   
   carousels.forEach((carousel) => {
-    const section = carousel.closest('.container').parentElement;
+    const section = carousel.closest('.container');
     const prevBtn = section.querySelector('.carousel-controls button:first-of-type');
     const nextBtn = section.querySelector('.carousel-controls button:last-of-type');
     const counterSpan = section.querySelector('.carousel-controls span');
