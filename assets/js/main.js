@@ -267,18 +267,24 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     renderGrid(artworksData);
 
-    // Simple Filter Logic for Artist checkboxes (Demo)
-    const artistCheckboxes = document.querySelectorAll('.filter-group:nth-child(3) input[type="checkbox"]');
-    artistCheckboxes.forEach(cb => {
-      cb.addEventListener('change', () => {
-        const checkedArtists = Array.from(artistCheckboxes).filter(c => c.checked).map(c => c.nextElementSibling.nextElementSibling.textContent.trim());
-        if (checkedArtists.length === 0) {
-          renderGrid(artworksData);
-        } else {
-          renderGrid(artworksData.filter(a => checkedArtists.includes(a.artist)));
-        }
+    // Fixed Filter Logic
+    const filterGroups = document.querySelectorAll('.filter-group');
+    if(filterGroups.length > 1) {
+      const artistCheckboxes = filterGroups[1].querySelectorAll('input[type="checkbox"]');
+      artistCheckboxes.forEach(cb => {
+        cb.addEventListener('change', () => {
+          const checkedArtists = Array.from(artistCheckboxes).filter(c => c.checked).map(c => {
+             const lbl = c.parentElement.querySelector('.label-text');
+             return lbl ? lbl.textContent.trim() : '';
+          });
+          if (checkedArtists.length === 0) {
+            renderGrid(artworksData);
+          } else {
+            renderGrid(artworksData.filter(a => checkedArtists.includes(a.artist)));
+          }
+        });
       });
-    });
+    }
   }
 
   // 2. Render Detail Page
@@ -291,19 +297,19 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelector('.info-header h1').textContent = art.title.toUpperCase();
       document.querySelector('.info-header .uppercase').textContent = art.category.toUpperCase();
       document.querySelector('.info-header h1 + p').textContent = art.artist;
-      document.querySelector('.info-header h1 + p + p').textContent = \\ | \\;
-      document.querySelector('.price-section span').textContent = \$\\;
-      document.querySelector('.lease-box span').textContent = \$\\;
-      document.querySelector('.lease-box p:last-child').innerHTML = \Based on artwork price of $\.<br>Leasing rate is calculated as per our standard terms. Applicable taxes extra.\;
+      document.querySelector('.info-header h1 + p + p').textContent = `${art.location} | ${art.year}`;
+      document.querySelector('.price-section span').textContent = `$${art.price}`;
+      document.querySelector('.lease-box span').textContent = `$${art.price}`;
+      document.querySelector('.lease-box p:last-child').innerHTML = `Based on artwork price of $${art.price}.<br>Leasing rate is calculated as per our standard terms. Applicable taxes extra.`;
       document.querySelector('.description p').textContent = art.description;
       
       // Metadata table
       const tds = document.querySelectorAll('.metadata-table td:nth-child(2)');
       if(tds.length >= 6) {
          tds[0].textContent = art.medium;
-         tds[1].textContent = \\ | \\;
+         tds[1].textContent = `${art.size} | ${art.dimensionWithFrame}`;
          tds[2].textContent = art.weight;
-         tds[3].textContent = \\ » \\;
+         tds[3].textContent = `${art.category} Â» ${art.tags[0] || ''}`;
          tds[4].textContent = art.tags.join(', ');
       }
       
@@ -312,7 +318,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const thumbContainer = document.querySelector('.gallery-thumbnails');
       if (mainImg && thumbContainer && art.images.length > 0) {
         mainImg.src = art.images[0];
-        thumbContainer.innerHTML = art.images.map((img, idx) => \<img src=\"\\" class=\"\\" alt=\"Thumb \\" style=\"width: 100%; height: 100px; object-fit: cover; cursor: pointer; \\">\).join('');
+        thumbContainer.innerHTML = art.images.map((img, idx) => `<img src="${img}" class="${idx===0?'active-thumb':'thumb'}" alt="Thumb ${idx+1}" style="width: 100%; height: 100px; object-fit: cover; cursor: pointer; ${idx===0?'border: 1px solid #111;':'opacity: 0.6;'}">`).join('');
         
         // Re-bind thumb clicks
         const newThumbs = thumbContainer.querySelectorAll('img');
@@ -339,21 +345,21 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   }
 
-  // 3. Update all static slider links on the page (like Related Artworks or Homepage sliders)
-  const allSliderCards = document.querySelectorAll('.slider-track .card');
-  if (allSliderCards.length > 0 && typeof artworksData !== 'undefined') {
-    allSliderCards.forEach((card, index) => {
+  // 3. Fix links safely
+  if (typeof artworksData !== 'undefined') {
+    const allSliderCards = document.querySelectorAll('.slider-track .card');
+    allSliderCards.forEach((card) => {
       const a = card.querySelector('a');
-      if(a) {
-        // just cycle through data for demo purposes
-        const art = artworksData[index % artworksData.length];
-        a.href = \detail.html?id=\\;
-        const img = a.querySelector('img');
-        if(img) img.src = art.images[0];
-        const title = a.querySelector('.card-title');
-        if(title) title.textContent = art.title;
+      const img = card.querySelector('img');
+      if(a && img) {
+        const imgSrc = img.getAttribute('src');
+        if (imgSrc) {
+           const matchingArt = artworksData.find(art => art.images[0].includes(imgSrc) || imgSrc.includes(art.images[0]));
+           if (matchingArt) {
+             a.href = `detail.html?id=${matchingArt.id}`;
+           }
+        }
       }
     });
   }
 });
-
