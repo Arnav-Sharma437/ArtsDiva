@@ -168,3 +168,72 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
+
+
+// Accordion Logic for Catalogue Sidebar
+document.addEventListener('DOMContentLoaded', () => {
+  const accordions = document.querySelectorAll('.accordion-btn');
+  accordions.forEach(btn => {
+    btn.addEventListener('click', function() {
+      this.classList.toggle('active');
+      const panel = this.nextElementSibling;
+      if (panel.style.display === 'none' || !panel.classList.contains('active')) {
+        panel.style.display = 'block';
+        panel.classList.add('active');
+        this.querySelector('svg').style.transform = 'rotate(180deg)';
+      } else {
+        panel.style.display = 'none';
+        panel.classList.remove('active');
+        this.querySelector('svg').style.transform = 'rotate(0deg)';
+      }
+    });
+  });
+});
+
+
+// Detail Page Logic
+document.addEventListener('DOMContentLoaded', () => {
+  // Image Gallery
+  const mainImg = document.getElementById('main-product-img');
+  const thumbs = document.querySelectorAll('.gallery-thumbnails img');
+  if (mainImg && thumbs.length > 0) {
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', function() {
+        mainImg.src = this.src;
+        thumbs.forEach(t => {
+          t.classList.remove('active-thumb');
+          t.classList.add('thumb');
+        });
+        this.classList.remove('thumb');
+        this.classList.add('active-thumb');
+      });
+    });
+  }
+
+  // Tabs
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const tabContents = document.querySelectorAll('.tab-content');
+  if (tabBtns.length > 0) {
+    tabBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        const target = this.getAttribute('data-target');
+        tabBtns.forEach(b => {
+          b.classList.remove('active');
+          b.style.borderColor = 'transparent';
+          b.style.color = '#999';
+        });
+        this.classList.add('active');
+        this.style.borderColor = '#111';
+        this.style.color = '#111';
+        
+        tabContents.forEach(content => {
+          if (content.id === target) {
+            content.style.display = content.id === 'tab-details' ? 'flex' : 'block';
+          } else {
+            content.style.display = 'none';
+          }
+        });
+      });
+    });
+  }
+});
