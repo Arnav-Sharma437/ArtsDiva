@@ -121,6 +121,18 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         }
         carousel.scrollLeft = position;
+
+        // Update counter based on scroll position
+        if (counterSpan) {
+          const totalOriginalItems = items.length;
+          const itemWidth = halfWidth / totalOriginalItems;
+          // Math.floor(position / itemWidth) gives 0 to totalOriginalItems - 1
+          const currentIndex = Math.floor(position / itemWidth) % totalOriginalItems + 1;
+          const newText = `${currentIndex} / ${totalOriginalItems}`;
+          if (counterSpan.textContent !== newText) {
+            counterSpan.textContent = newText;
+          }
+        }
       }
       requestAnimationFrame(tick);
     };
